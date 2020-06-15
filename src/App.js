@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import logo from './img/logo-future-eats.png'
 
 const TelaToda = styled.div`
   margin: 0;
@@ -19,13 +20,17 @@ const DivInterna = styled.div`
   height: 640px;
   margin: 5px;
   border: 1px solid black;
-  background-color: #fff;
+  background-color: #e8222e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 function App() {
   return (
     <TelaToda>
       <DivInterna>
+        <img src={logo} alt="iFuture" />
       </DivInterna>
     </TelaToda>
   );
