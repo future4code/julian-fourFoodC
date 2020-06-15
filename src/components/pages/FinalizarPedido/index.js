@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import IconeEditar from './img/edit.svg'
+import IconeEditar from '../../../img/edit.svg'
 
 const TelaToda = styled.div`
   margin: 0;
