@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const TelaToda = styled.div`
   margin: 0;
   padding: 0%;
