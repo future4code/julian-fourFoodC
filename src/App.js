@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
+
+const TelaToda = styled.div`
+  margin: 0;
+  padding: 0%;
+  background-color: #d0d0d0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const DivInterna = styled.div`
+  width: 360px;
+  box-sizing: border-box;
+  height: 640px;
+  margin: 5px;
+  border: 1px solid black;
+  background-color: #fff;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TelaToda>
+      <DivInterna>
+      </DivInterna>
+    </TelaToda>
   );
 }
 
