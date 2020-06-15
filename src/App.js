@@ -1,38 +1,70 @@
 import React from 'react';
-import styled from 'styled-components'
-import logo from './img/logo-future-eats.png'
-
-const TelaToda = styled.div`
-  margin: 0;
-  padding: 0%;
-  background-color: #d0d0d0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-const DivInterna = styled.div`
-  width: 360px;
-  box-sizing: border-box;
-  height: 640px;
-  margin: 5px;
-  border: 1px solid black;
-  background-color: #e8222e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
+import { Switch, Route, BrowserRouter} from "react-router-dom";
+import {CadastroEnderecoPage, LoginPage, SignUpPage, TelaInicialPage} from './Components/AreaPessoal';
+import {ConfimaçãoPage, PedidoEmAndamentoPage, RestaurantePage, SearchNoResultsPage} from './Components/Busca';
+import {EditarCadastroPage, EditarEndereçoPage, PerfilHistoricoVazioPage, PerfilPage} from './Components/FinalizarPedido';
+import {FeedPage, SearchPlacehoderPage, SearchResultsPage} from './Components/Home';
+import {CarrinhoComProdutosPage, CarrinhoVazioPage} from './Components/MeuCarrinho';
 
 function App() {
   return (
-    <TelaToda>
-      <DivInterna>
-        <img src={logo} alt="iFuture" />
-      </DivInterna>
-    </TelaToda>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+        </Route>
+        <Route exact path="/CadastroEnderecoPage">
+            <CadastroEnderecoPage />
+        </Route>
+        <Route exact path="/LoginPage">
+            <LoginPage />
+        </Route>
+        <Route exact path="/SignUpPage">
+            <SignUpPage />
+        </Route>
+        <Route exact path="/TelaInicialPage">
+            <TelaInicialPage />
+        </Route>
+        <Route exact path="/ConfimaçãoPage">
+            <ConfimaçãoPage />
+        </Route>
+        <Route exact path="/PedidoEmAndamentoPage">
+            <PedidoEmAndamentoPage />
+        </Route>
+        <Route exact path="/RestaurantePage">
+            <RestaurantePage />
+        </Route>
+        <Route exact path="/SearchNoResultsPage">
+            <SearchNoResultsPage />
+        </Route>
+        <Route exact path="/EditarCadastroPage">
+            <EditarCadastroPage />
+        </Route>
+        <Route exact path="/EditarEndereçoPage">
+            <EditarEndereçoPage />
+        </Route>
+        <Route exact path="/PerfilHistoricoVazioPage">
+            <PerfilHistoricoVazioPage />
+        </Route>
+        <Route exact path="/PerfilPage">
+            <PerfilPage />
+        </Route>
+        <Route exact path="/FeedPage">
+            <FeedPage />
+        </Route>
+        <Route exact path="/SearchPlacehoderPage">
+            <SearchPlacehoderPage />
+        </Route>
+        <Route exact path="/SearchResultsPage">
+            <SearchResultsPage />
+        </Route>
+        <Route exact path="/CarrinhoComProdutosPage">
+            <CarrinhoComProdutosPage />
+        </Route>
+        <Route exact path="/CarrinhoVazioPage">
+            <CarrinhoVazioPage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
