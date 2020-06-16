@@ -5,7 +5,8 @@ import Login from './components/pages/Login';
 import Cadastro from './components/pages/Cadastro';
 import Home from './components/pages/Home'
 import Busca from './components/pages/Busca'
-import FinalizarPedido from './components/pages/FinalizarPedido';
+import DetalhesPerfil from './components/pages/DetalhesPerfil';
+import EditarPerfil from './components/pages/EditarPerfil';
 import MeuCarrinho from './components/pages/MeuCarrinho';
 
 function App() {
@@ -13,25 +14,28 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-            <TelaInicial />
+          <TelaInicial />
         </Route>
         <Route exact path="/login">
-            <Login />
+          <Login />
         </Route>
         <Route exact path="/cadastro">
-            <Cadastro />
+          <Cadastro />
         </Route>
         <Route exact path="/home">
-            <Home />
+          <Home />
         </Route>
         <Route exact path="/busca">
-            <Busca />
+          <Busca />
         </Route>
-        <Route exact path="/finalizar">
-            <FinalizarPedido />
+        <Route exact path="/perfil">
+          <DetalhesPerfil />
+        </Route>
+        <Route exact path="/perfil/editar">
+          <EditarPerfil />
         </Route>
         <Route exact path="/carrinho">
-            <MeuCarrinho />
+          <MeuCarrinho />
         </Route>
       </Switch>
     </BrowserRouter>
