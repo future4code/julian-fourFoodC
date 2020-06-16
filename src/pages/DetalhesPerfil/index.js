@@ -1,9 +1,8 @@
 import React from 'react';
-import styled from 'styled-components'
-import IconeEditar from '../../../img/edit.svg'
-import IconeHome from '../../../img/homepage.svg'
-import IconeCarrinho from '../../../img/shopping-cart.svg'
-import IconePerfil from '../../../img/avatar-red.svg'
+import IconeEditar from '../../img/edit.svg'
+import IconeHome from '../../img/homepage.svg'
+import IconeCarrinho from '../../img/shopping-cart.svg'
+import IconePerfil from '../../img/avatar-red.svg'
 import {Link} from 'react-router-dom'
 import {TelaToda, DivInterna, DivWrapper, Header, SecaoDetalhesPerfil,
         IconeEditarPerfil, TextoPadrao, SecaoEndereco, TextoEndereco,
@@ -72,7 +71,9 @@ function DetalhesPerfil() {
             <img src={IconeHome} alt="" />
           </ContainerIcone>
           <ContainerIcone>
-            <img src={IconeCarrinho} alt="" />
+            <Link to='/carrinho'>
+              <img src={IconeCarrinho} alt="" />
+            </Link>
           </ContainerIcone>
           <ContainerIcone>
             <img src={IconePerfil} alt="" />

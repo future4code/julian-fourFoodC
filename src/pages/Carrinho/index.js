@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
-import IconeHome from '../../../img/homepage.svg'
-import IconeCarrinho from '../../../img/shopping-cart-red.svg'
-import IconePerfil from '../../../img/avatar.svg'
+import IconeHome from '../../img/homepage.svg'
+import IconeCarrinho from '../../img/shopping-cart-red.svg'
+import IconePerfil from '../../img/avatar.svg'
+import { Link } from 'react-router-dom';
 
 const TelaToda = styled.div`
   margin: 0;
@@ -200,7 +201,9 @@ function Carrinho() {
             <img src={IconeCarrinho} alt="" />
           </ContainerIcone>
           <ContainerIcone>
-            <img src={IconePerfil} alt="" />
+            <Link to='/perfil'>
+              <img src={IconePerfil} alt="" />
+            </Link>
           </ContainerIcone>
         </Footer>
       </DivInterna>
