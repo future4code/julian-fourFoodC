@@ -21,9 +21,9 @@ const TelaToda = styled.div`
 const DivInterna = styled.div`
   width: 360px;
   max-width: 100vw;
-  box-sizing: border-box;
   height: 640px;
   max-height: 100vh;
+  box-sizing: border-box;
   margin: 5px;
   border: 1px solid black;
   background-color: #fff;
@@ -155,21 +155,7 @@ const ContainerIcone = styled.div`
 
 function DetalhesPerfil() {
   const historicoPedidos = [
-    {
-      nome: "Bullguer Vila Madalena",
-      data: "23 outubro 19",
-      valor: 67.0
-    },
-    {
-      nome: "Vinil Burger Butantã",
-      data: "30 setembro 19",
-      valor: 89.0
-    },
-    {
-      nome: "Bullguer Vila Madalena",
-      data: "10 setembro 19",
-      valor: 77.0
-    }
+    
   ]
 
   return (
