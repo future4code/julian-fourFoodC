@@ -7,7 +7,7 @@ import Home from './components/pages/Home'
 import Busca from './components/pages/Busca'
 import DetalhesPerfil from './components/pages/DetalhesPerfil';
 import EditarPerfil from './components/pages/EditarPerfil';
-import MeuCarrinho from './components/pages/MeuCarrinho';
+import Carrinho from './components/pages/Carrinho';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
           <EditarPerfil />
         </Route>
         <Route exact path="/carrinho">
-          <MeuCarrinho />
+          <Carrinho />
         </Route>
       </Switch>
     </BrowserRouter>
