@@ -35,7 +35,7 @@ const DivWrapper = styled.div`
   flex-direction: column;
   overflow-y: auto;
   width: 100%;
-  height: 542px;
+  height: 640px;
   margin-bottom: 49px;
   scrollbar-width: none;
   &::-webkit-scrollbar{
