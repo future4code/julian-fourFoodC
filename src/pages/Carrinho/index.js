@@ -85,6 +85,8 @@ const ContainerPadrao = styled.div`
 
 const TextoCarrinhoVazio = styled.p`
   align-self: center;
+  margin: 0;
+  padding: 0;
 `
 
 const NomeRestaurante = styled.p`
@@ -125,13 +127,21 @@ const ValorTotal = styled.p`
   font-weight: bold;
 `
 
+const ContainerFormaDePagamento = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const OpcaoPagamento = styled.div`
+  margin: 8px 0;
+`
+
 const Botao = styled.button`
     color: black;
     background-color: #e8222e;
     padding: 12px;
     font-weight:bold;
     border: none;
-
     :hover {
         background-color: #b90510;
     }
@@ -155,7 +165,7 @@ const ContainerIcone = styled.div`
 `
 
 function Carrinho() {
-  const carrinho = []
+  const carrinho = [{},{},{}]
 
   return (
     <TelaToda>
@@ -171,9 +181,9 @@ function Carrinho() {
           <ContainerPadrao>
             {(carrinho.length === 0) && <TextoCarrinhoVazio>Carrinho vazio</TextoCarrinhoVazio>}
             {carrinho.length>0 && <>
-              <NomeRestaurante>Bullger Vila Madalena</NomeRestaurante>
-              <TextoCinza>R.Fradique Coutinho, 1136 - Vila Madalena</TextoCinza>
-              <TextoCinza>30-45 min</TextoCinza>
+              <NomeRestaurante>Nome do restaurante</NomeRestaurante>
+              <TextoCinza>Endereço do restaurante</TextoCinza>
+              <TextoCinza>x-y min</TextoCinza>
             </>}
             {carrinho.map(produto=>{
               return(
@@ -188,6 +198,18 @@ function Carrinho() {
               <TextoPadrao>SUBTOTAL</TextoPadrao>
               <ValorTotal>R$0.00</ValorTotal>
             </DivSubtotal>
+          </ContainerPadrao>
+          <ContainerPadrao>
+            <TextoPadrao>Forma de pagamento</TextoPadrao>
+            <div><hr /></div>
+            <ContainerFormaDePagamento>
+              <OpcaoPagamento>
+                <input type="radio" value="dinheiro" name="pagamento" /> Dinheiro
+              </OpcaoPagamento>
+              <OpcaoPagamento>
+                <input type="radio" value="cartao" name="pagamento" /> Cartão de crédito
+              </OpcaoPagamento>
+            </ContainerFormaDePagamento>
           </ContainerPadrao>
           <ContainerPadrao>
             <Botao>Confirmar</Botao>
