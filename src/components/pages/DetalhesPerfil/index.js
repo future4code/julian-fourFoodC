@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
 import IconeEditar from '../../../img/edit.svg'
+import IconeHome from '../../../img/homepage.svg'
+import IconeCarrinho from '../../../img/shopping-cart.svg'
+import IconePerfil from '../../../img/avatar.svg'
 
 const TelaToda = styled.div`
   margin: 0;
@@ -104,21 +107,50 @@ const CardHistorico = styled.div`
   width: 328px;
   height: 102px;
   margin: 8px 0;
+  padding: 16px;
   box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid #b8b8b8;
+  text-align: left;
+`
+
+const NomeRestaurante = styled.p`
+  color: #e8222e;
+  margin: 0 0 8px 0;
+  padding: 0;
+`
+
+const DataPedido = styled.p`
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  padding: 0;
+`
+
+const ValorPedido = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  padding: 0;
 `
 
 const Footer = styled.div`
-    box-shadow: 0 -1px 3px 0 rgba(0,0,0,0.75);
-    height: 49px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: #fff;
+  box-shadow: 0 -1px 3px 0 rgba(0,0,0,0.75);
+  height: 49px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 `
 
-function FinalizarPedido() {
+const ContainerIcone = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+function DetalhesPerfil() {
   const historicoPedidos = [
     {
       nome: "Bullguer Vila Madalena",
@@ -163,16 +195,28 @@ function FinalizarPedido() {
               {historicoPedidos.map(pedido=>{
                 return(
                 <CardHistorico>
-
+                  <NomeRestaurante>{pedido.nome}</NomeRestaurante>
+                  <DataPedido>{pedido.data}</DataPedido>
+                  <ValorPedido>SUBTOTAL R${pedido.valor.toFixed(2)}</ValorPedido>
                 </CardHistorico>
               )})}
             </ContainerCardsHistorico>
           </SecaoHistorico>
         </DivWrapper>
-        <Footer />
+        <Footer>
+          <ContainerIcone>
+            <img src={IconeHome} alt="" />
+          </ContainerIcone>
+          <ContainerIcone>
+            <img src={IconeCarrinho} alt="" />
+          </ContainerIcone>
+          <ContainerIcone>
+            <img src={IconePerfil} alt="" />
+          </ContainerIcone>
+        </Footer>
       </DivInterna>
     </TelaToda>
   );
 }
 
-export default FinalizarPedido;
+export default DetalhesPerfil;

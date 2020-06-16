@@ -5,7 +5,7 @@ import Login from './components/pages/Login';
 import Cadastro from './components/pages/Cadastro';
 import Home from './components/pages/Home'
 import Busca from './components/pages/Busca'
-import FinalizarPedido from './components/pages/FinalizarPedido';
+import DetalhesPerfil from './components/pages/DetalhesPerfil';
 import MeuCarrinho from './components/pages/MeuCarrinho';
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
         <Route exact path="/busca">
             <Busca />
         </Route>
-        <Route exact path="/finalizar">
-            <FinalizarPedido />
+        <Route exact path="/perfil">
+            <DetalhesPerfil />
         </Route>
         <Route exact path="/carrinho">
             <MeuCarrinho />
