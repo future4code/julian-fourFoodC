@@ -1,12 +1,20 @@
 import React from 'react';
-import logo from '../../../img/logo-future-eats.png'
+import logo from '../../../img/logo-future-eats.gif'
 import {TelaToda, DivInterna} from './style';
+import { useHistory } from 'react-router-dom';
 
 function TelaInicial() {
+
+  const history = useHistory();
+
+  const goToLogin = () => {
+    history.push("/login")
+}
+
   return (
     <TelaToda>
       <DivInterna>
-        <img src={logo} alt="iFuture" />
+        <img src={logo} alt="iFuture" onClick={goToLogin}/>
       </DivInterna>
     </TelaToda>
   );
