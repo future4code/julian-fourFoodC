@@ -4,6 +4,7 @@ import IconeEditar from '../../../img/edit.svg'
 import IconeHome from '../../../img/homepage.svg'
 import IconeCarrinho from '../../../img/shopping-cart.svg'
 import IconePerfil from '../../../img/avatar.svg'
+import {Link} from 'react-router-dom'
 
 const TelaToda = styled.div`
   margin: 0;
@@ -180,7 +181,9 @@ function DetalhesPerfil() {
             <TextoPadrao>Bruna Oliveira</TextoPadrao>
             <TextoPadrao>bruna_o@gmail.com</TextoPadrao>
             <TextoPadrao>333.333.333-33</TextoPadrao>
-            <IconeEditarPerfil src={IconeEditar} />
+            <Link to='/perfil/editar'>
+              <IconeEditarPerfil src={IconeEditar} />
+            </Link>
           </SecaoDetalhesPerfil>
           <SecaoEndereco>
             <TextoEndereco>Endereço cadastrado</TextoEndereco>
