@@ -20,8 +20,10 @@ const TelaToda = styled.div`
 
 const DivInterna = styled.div`
   width: 360px;
+  max-width: 100vw;
   box-sizing: border-box;
   height: 640px;
+  max-height: 100vh;
   margin: 5px;
   border: 1px solid black;
   background-color: #fff;
@@ -35,7 +37,8 @@ const DivWrapper = styled.div`
   flex-direction: column;
   overflow-y: auto;
   width: 100%;
-  height: 542px;
+  min-height: 542px;
+  margin-bottom: 49px;
   scrollbar-width: none;
   &::-webkit-scrollbar{
     display: none;
