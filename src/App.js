@@ -1,13 +1,12 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import TelaInicial from './components/pages/TelaInicial';
-import Login from './components/pages/Login';
-import Cadastro from './components/pages/Cadastro';
-import Home from './components/pages/Home'
-import Busca from './components/pages/Busca'
-import DetalhesPerfil from './components/pages/DetalhesPerfil';
-import EditarPerfil from './components/pages/EditarPerfil';
-import MeuCarrinho from './components/pages/MeuCarrinho';
+import TelaInicial from './pages/TelaInicial';
+import Login from './pages/Login';
+import Cadastro from './pages/Cadastro';
+import Home from './pages/Home'
+import Busca from './pages/Busca'
+import FinalizarPedido from './pages/FinalizarPedido';
+import MeuCarrinho from './pages/MeuCarrinho';
 
 function App() {
   return (
