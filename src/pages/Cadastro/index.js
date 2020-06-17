@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../img/logo-future-eats-red.png'
+import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
