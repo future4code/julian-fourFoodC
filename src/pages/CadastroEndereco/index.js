@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
@@ -43,8 +43,8 @@ border: none;
     background-color: #b90510;
 }
 ` 
-const FormContainer = styled.div`
-`;
+const FormContainer = styled.form`
+`
 
 const CadastroEndereco = () => {
 
@@ -101,22 +101,22 @@ const CadastroEndereco = () => {
     <DivInterna>
       <img src={logo} alt="iFuture"/>
       <FormContainer onSubmit={cadastrarEndereco}>
-      <TextField
-          label={'Logradouro*'}
-          onChange={onChangeInput}
-          type={"text"}
-          name="street"
-          value={form.street}
-          variant="outlined"    
+        <TextField
+            label={'Logradouro*'}
+            onChange={onChangeInput}
+            type={"text"}
+            name="street"
+            value={form.street}
+            variant="outlined"    
 
-        />
-      <TextField
-          label={'Número*'}
-          onChange={onChangeInput}
-          type={'number'}
-          name="number"
-          value={form.number}
-          variant="outlined"
+          />
+        <TextField
+            label={'Número*'}
+            onChange={onChangeInput}
+            type={'number'}
+            name="number"
+            value={form.number}
+            variant="outlined"
 
         />
         <TextField
@@ -128,35 +128,33 @@ const CadastroEndereco = () => {
           variant="outlined"
           
         />
-      <TextField
-          label={'Bairro*'}
-          onChange={onChangeInput}
-          type={'text'}
-          name="neighbourhood"
-          value={form.neighbourhood}
-          variant="outlined"
+        <TextField
+            label={'Bairro*'}
+            onChange={onChangeInput}
+            type={'text'}
+            name="neighbourhood"
+            value={form.neighbourhood}
+            variant="outlined"
 
         />
-         <TextField
+        <TextField
           label={'Cidade*'}
           onChange={onChangeInput}
           type={'text'}
           name="city"
           value={form.city}
           variant="outlined"
-
         />
-          <TextField
+        <TextField
           label={'Estado*'}
           onChange={onChangeInput}
           type={'text'}
           name="state"
           value={form.state}
           variant="outlined"
-
         />
-      <BotaoInsc> Salvar </BotaoInsc> 
-    </FormContainer>
+        <BotaoInsc> Salvar </BotaoInsc> 
+      </FormContainer>
     </DivInterna>
   </TelaToda>  
   );
