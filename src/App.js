@@ -3,10 +3,12 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import TelaInicial from './pages/TelaInicial';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
+import CadastroEndereco from './pages/CadastroEndereco';
 import Home from './pages/Home'
 import Busca from './pages/Busca'
-import FinalizarPedido from './pages/FinalizarPedido';
-import MeuCarrinho from './pages/MeuCarrinho';
+import DetalhesPerfil from './pages/DetalhesPerfil';
+import EditarPerfil from './pages/EditarPerfil';
+import Carrinho from './pages/Carrinho';
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
         <Route exact path="/cadastro">
           <Cadastro />
         </Route>
+        <Route exact path="/cadastro/endereco">
+          <CadastroEndereco />
+        </Route>
         <Route path="/home">
           <Home />
         </Route>
@@ -34,7 +39,7 @@ function App() {
           <EditarPerfil />
         </Route>
         <Route exact path="/carrinho">
-          <MeuCarrinho />
+          <Carrinho />
         </Route>
       </Switch>
     </BrowserRouter>

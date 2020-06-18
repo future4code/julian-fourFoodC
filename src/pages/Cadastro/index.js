@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../img/logo-future-eats-red.png'
+import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
@@ -45,8 +45,8 @@ border: none;
 const Cadastro = () => {
   const history = useHistory();
 
-  const goToHome = () => {
-    history.push("/home")
+  const goToAdress = () => {
+    history.push("/cadastro/endereco")
     
 }
 
@@ -91,7 +91,7 @@ const Cadastro = () => {
           variant="outlined"
 
         />
-    <BotaoInsc onClick = { goToHome } > Criar </BotaoInsc> 
+    <BotaoInsc onClick = { goToAdress } > Criar </BotaoInsc> 
     </DivInterna>
   </TelaToda>
   );
