@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import Busca from './pages/Busca'
 import DetalhesPerfil from './pages/DetalhesPerfil';
 import EditarPerfil from './pages/EditarPerfil';
-import MeuCarrinho from './pages/MeuCarrinho';
+import Carrinho from './pages/Carrinho';
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
           <EditarPerfil />
         </Route>
         <Route exact path="/carrinho">
-          <MeuCarrinho />
+          <Carrinho />
         </Route>
       </Switch>
     </BrowserRouter>
