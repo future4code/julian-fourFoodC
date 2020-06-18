@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import {Container, Nav} from './style'
-import { BrowserRouter, NavLink, useHistory } from 'react-router-dom';
+import React from 'react';
+import {Container, Nav, Topbar, Input} from './style'
+import { BrowserRouter, NavLink } from 'react-router-dom';
 import Paginas from './Paginas'
 
 
@@ -15,10 +14,10 @@ import Paginas from './Paginas'
 const Home = () => { 
   return (
     <BrowserRouter>
-      <div className="Container">
+      <Topbar className="Container">
         <h3>ifuture</h3>
-        <input placeholder='Restaurante'></input>
-      </div>
+        <Input placeholder='Restaurante'></Input>
+      </Topbar>
       <Container>
         <Nav>
           <NavLink to='/home/pagina1'>pag 1</NavLink>
