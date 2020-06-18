@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/cadastro/endereco">
           <CadastroEndereco />
         </Route>
-        <Route exact path="/home">
+        <Route path="/home">
           <Home />
         </Route>
         <Route exact path="/busca">
