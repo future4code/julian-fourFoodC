@@ -1,79 +1,70 @@
-import React from 'react';
-import logo from '../../img/logo-future-eats-red.png'
+import React, {useState} from 'react';
+import logo from '../../img/logo-future-eats-red.png';
 import TextField from '@material-ui/core/TextField';
-
+import { TelaToda, DivInterna, BotaoInsc } from './style';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components'
-
-const TelaToda = styled.div`
-  margin: 0;
-  padding: 0%;
-  background-color: #d0d0d0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-export const DivInterna = styled.div`
-  width: 360px;
-  box-sizing: border-box;
-  height: 640px;
-  margin: 5px;
-  border: 1px solid black;
-  background-color: white;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; 
-
-`
-const BotaoInsc = styled.button`
-color: black;
-background-color: #e8222e;
-padding: 12px;
-font-size: 15px;
-font-weight:bold;
-border: none;
-
-:hover {
-    background-color: #b90510;
-}
-` 
+import { useForm } from '../../hooks/useForm';
+import axios from 'axios';
 
 const Login = () => {
   const history = useHistory();
+  const token = localStorage.getItem("token");
+  
+  if(token)
+  	history.push('/home')
 
-  const goToHome = () => {
-    history.push("/home")
-};
+  const {form, changeValue} = useForm({email: '', senha: ''})
+  const [erro, setErro] = useState(null);
 
-const goToCadastro = () => {
-  history.push("/cadastro")
-};
+  const onChangeInput = (event) => {
+    const {name, value} = event.target;
+    changeValue(name, value);
+  }
+
+  const goToCadastro= ()=>{
+    history.push('/cadastro');
+  }
+
+  const goToHome = (event) => {
+    event.preventDefault()
+    const body = {
+      email: form.email,
+      password: form.senha
+    }
+    axios.post('https://us-central1-missao-newton.cloudfunctions.net/{{fourFoodC}}/login', body).then((response) => {
+      window.localStorage.setItem('token', response.data.token)
+      {response.data.user.hasAddress ? ( history.push('/home')) : (history.push('/cadastro'))}
+    });
+  }
+
 
   return (
     <TelaToda>
-    <DivInterna>
-      <img src={logo} alt="iFuture"/>
-      <TextField
-          id="outlined-helperText"
-          label="Login"
-          defaultValue="email@email.com"
-          variant="outlined"     
+      <DivInterna>
+        <img src={logo} alt="iFuture" />
+        
 
-        />
-      <TextField
-          id="outlined-helperText"
-          label="Senha"
-          defaultValue="Mínimo 6 caracteres"
-          variant="outlined"
+          <TextField
+            id="outlined-helperText"
+            label="Login"
+            name="email"
+            value={form['email']}
+            variant="outlined"
+            onChange={onChangeInput}
+          />
 
-        />
-    <BotaoInsc onClick = { goToHome } > Entrar </BotaoInsc> 
-    <p>Não possui cadastro?<p onClick = { goToCadastro } >Clique aqui</p></p>
+          <TextField
+            id="outlined-helperText"
+            label="Senha"
+            name="senha"
+            value={form['senha']}
+            variant="outlined"
+            onChange={onChangeInput}
+
+          />
+          <BotaoInsc onSubmit={goToHome} > Entrar </BotaoInsc>
+          <p>Não possui cadastro?<p onSubmit={goToCadastro} >Clique aqui</p></p>
+          
     </DivInterna>
   </TelaToda>
   );
