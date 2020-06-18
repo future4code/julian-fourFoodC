@@ -8,6 +8,7 @@ import Busca from './components/pages/Busca'
 import DetalhesPerfil from './components/pages/DetalhesPerfil';
 import EditarPerfil from './components/pages/EditarPerfil';
 import MeuCarrinho from './components/pages/MeuCarrinho';
+import CadastroEndereco from './components/pages/Cadastro/CadastroEndereco';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/cadastro">
           <Cadastro />
+        </Route>
+        <Route exact path="/cadastro/endereco">
+          <CadastroEndereco />
         </Route>
         <Route exact path="/home">
           <Home />

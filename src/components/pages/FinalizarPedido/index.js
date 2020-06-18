@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'
 import IconeEditar from '../../../img/edit.svg'
-<<<<<<< HEAD:src/components/pages/DetalhesPerfil/index.js
 import IconeHome from '../../../img/homepage.svg'
 import IconeCarrinho from '../../../img/shopping-cart.svg'
 import IconePerfil from '../../../img/avatar.svg'
-=======
->>>>>>> 1057fc2d17b1ae53aa8a55b4a1d0fceb3021d1b2:src/components/pages/FinalizarPedido/index.js
 
 const TelaToda = styled.div`
   margin: 0;
