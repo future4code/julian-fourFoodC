@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/cadastro">
           <Cadastro />
         </Route>
-        <Route exact path="/home">
+        <Route path="/home">
           <Home />
         </Route>
         <Route exact path="/busca">
