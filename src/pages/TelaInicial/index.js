@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../img/logo-future-eats.gif'
+import logo from '../../img/logo-future-eats.png'
 import {TelaToda, DivInterna} from './style';
 import { useHistory } from 'react-router-dom';
 

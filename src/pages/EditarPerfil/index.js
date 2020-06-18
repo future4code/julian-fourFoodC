@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import IconeVoltar from '../../../img/back.svg'
+import IconeVoltar from '../../img/back.svg'
 import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from '../../../img/logo-future-eats-red.png'
+import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
-
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
 
@@ -43,16 +42,13 @@ border: none;
 }
 ` 
 
-const Login = () => {
+const Cadastro = () => {
   const history = useHistory();
 
-  const goToHome = () => {
-    history.push("/home")
-};
-
-const goToCadastro = () => {
-  history.push("/cadastro")
-};
+  const goToAdress = () => {
+    history.push("/cadastro/endereco")
+    
+}
 
   return (
     <TelaToda>
@@ -60,23 +56,46 @@ const goToCadastro = () => {
       <img src={logo} alt="iFuture"/>
       <TextField
           id="outlined-helperText"
-          label="Login"
-          defaultValue="email@email.com"
-          variant="outlined"     
+          label="Nome*"
+          defaultValue="Nome e sobrenome"
+          variant="outlined"
+          
 
         />
       <TextField
           id="outlined-helperText"
-          label="Senha"
+          label="E-mail*"
+          defaultValue="email@email.com"
+          variant="outlined"
+
+        />
+              <TextField
+          id="outlined-helperText"
+          label="CPF*"
+          defaultValue="000.000.000-00"
+          variant="outlined"
+          
+
+        />
+      <TextField
+          id="outlined-helperText"
+          label="Senha*"
           defaultValue="Mínimo 6 caracteres"
           variant="outlined"
 
         />
-    <BotaoInsc onClick = { goToHome } > Entrar </BotaoInsc> 
-    <p>Não possui cadastro?<p onClick = { goToCadastro } >Clique aqui</p></p>
+         <TextField
+          id="outlined-helperText"
+          label="Confirmar*"
+          defaultValue="Confirme a senha anterior"
+          variant="outlined"
+
+        />
+    <BotaoInsc onClick = { goToAdress } > Criar </BotaoInsc> 
     </DivInterna>
   </TelaToda>
   );
 }
 
-export default Login;
+
+export default Cadastro;

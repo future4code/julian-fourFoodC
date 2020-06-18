@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../../../img/logo-future-eats-red.png'
+import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
+import {useForm} from '../../hooks/useForm'
 
 const TelaToda = styled.div`
   margin: 0;
@@ -47,69 +48,74 @@ const FormContainer = styled.div`
 
 const CadastroEndereco = () => {
 
-    const history = useHistory();
+  const history = useHistory();
 
-    const goToHome = () => {
-      history.push("/home")    
+  const goToHome = () => {
+    history.push("/home")    
   }
 
-    const [address, setAddress] = useState([])
-    const [form, setForm] = ({ 
+  const {form, changeValue} = useForm({ 
         street: "",
         number: "",
         neighbourhood: "",
         city: "",
         state: "",
         complement: ""
-    })
+  })
 
-    const onChangeInput = (event) => {
-        const newValue = event.target.value
-        const fieldName = event.target.name
+  const onChangeInput = (event) => {
+      const {name, value} = event.target;
+      changeValue(name, value);
+  }
 
-        setForm({...form, [fieldName]: newValue})
+  const cadastrarEndereco = (event) => {
+    event.preventDefault();
+
+    const body = {
+      street: form.street,
+      number: form.number,
+      neighbourhood: form.neighbourhood,
+      city: form.city,
+      state: form.state,
+      complement: form.complement        
     }
-    return [form, onChangeInput]
-}
 
-    useEffect(() => {
-        axios.put('https://us-central1-missao-newton.cloudfunctions.net/fourFoodC/address'
-        )
-        .then((response) => {
-            setForm(response.data.address);            
-        })
-    },[])
-
-    const onSubmitApplication = (event) => {
-        event.preventDefault()
-        const body = {
-            street: form.street,
-            number: form.number,
-            neighbourhood: form.neighbourhood,
-            city: form.city,
-            state: form.state,
-            complement: form.complement        
+    axios
+      .put('https://us-central1-missao-newton.cloudfunctions.net/fourFoodC/address', 
+        body, {
+        headers:{
+          auth: localStorage.getItem("token")
         }
-    }
+      })
+      .then((response) => {
+        console.log(response.data);   
+        goToHome();   
+      })
+      .catch(error =>{
+        console.log(error.response);
+      })
+  }
 
   return (
     <TelaToda>
     <DivInterna>
       <img src={logo} alt="iFuture"/>
-      <FormContainer onSubmit={onSubmitApplication}>
+      <FormContainer onSubmit={cadastrarEndereco}>
       <TextField
           label={'Logradouro*'}
           onChange={onChangeInput}
           type={"text"}
-          value={form['street']}
+          name="street"
+          value={form.street}
           variant="outlined"    
 
         />
       <TextField
           label={'Número*'}
           onChange={onChangeInput}
-          type={'text'}
-          value={form['number']}
+          type={'number'}
+          name="number"
+          value={form.number}
           variant="outlined"
 
         />
@@ -117,7 +123,8 @@ const CadastroEndereco = () => {
           label={'Complemento*'}
           onChange={onChangeInput}
           type={"text"}
-          value={form['complement']}
+          name="complement"
+          value={form.complement}
           variant="outlined"
           
         />
@@ -125,7 +132,8 @@ const CadastroEndereco = () => {
           label={'Bairro*'}
           onChange={onChangeInput}
           type={'text'}
-          value={form['neighbourhood']}
+          name="neighbourhood"
+          value={form.neighbourhood}
           variant="outlined"
 
         />
@@ -133,7 +141,8 @@ const CadastroEndereco = () => {
           label={'Cidade*'}
           onChange={onChangeInput}
           type={'text'}
-          value={form['city']}
+          name="city"
+          value={form.city}
           variant="outlined"
 
         />
@@ -141,11 +150,12 @@ const CadastroEndereco = () => {
           label={'Estado*'}
           onChange={onChangeInput}
           type={'text'}
-          value={form['state']}
+          name="state"
+          value={form.state}
           variant="outlined"
 
         />
-    <BotaoInsc onClick = { goToHome }> Salvar </BotaoInsc> 
+      <BotaoInsc> Salvar </BotaoInsc> 
     </FormContainer>
     </DivInterna>
   </TelaToda>  

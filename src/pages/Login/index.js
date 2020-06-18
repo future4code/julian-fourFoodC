@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from '../../../img/logo-future-eats-red.png'
+import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
+
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
 
@@ -42,13 +43,16 @@ border: none;
 }
 ` 
 
-const Cadastro = () => {
+const Login = () => {
   const history = useHistory();
 
-  const goToAdress = () => {
-    history.push("/cadastro/endereco")
-    
-}
+  const goToHome = () => {
+    history.push("/home")
+};
+
+const goToCadastro = () => {
+  history.push("/cadastro")
+};
 
   return (
     <TelaToda>
@@ -56,46 +60,23 @@ const Cadastro = () => {
       <img src={logo} alt="iFuture"/>
       <TextField
           id="outlined-helperText"
-          label="Nome*"
-          defaultValue="Nome e sobrenome"
-          variant="outlined"
-          
-
-        />
-      <TextField
-          id="outlined-helperText"
-          label="E-mail*"
+          label="Login"
           defaultValue="email@email.com"
-          variant="outlined"
-
-        />
-              <TextField
-          id="outlined-helperText"
-          label="CPF*"
-          defaultValue="000.000.000-00"
-          variant="outlined"
-          
+          variant="outlined"     
 
         />
       <TextField
           id="outlined-helperText"
-          label="Senha*"
+          label="Senha"
           defaultValue="Mínimo 6 caracteres"
           variant="outlined"
 
         />
-         <TextField
-          id="outlined-helperText"
-          label="Confirmar*"
-          defaultValue="Confirme a senha anterior"
-          variant="outlined"
-
-        />
-    <BotaoInsc onClick = { goToAdress } > Criar </BotaoInsc> 
+    <BotaoInsc onClick = { goToHome } > Entrar </BotaoInsc> 
+    <p>Não possui cadastro?<p onClick = { goToCadastro } >Clique aqui</p></p>
     </DivInterna>
   </TelaToda>
   );
 }
 
-
-export default Cadastro;
+export default Login;
