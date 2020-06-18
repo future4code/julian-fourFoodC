@@ -3,6 +3,7 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import TelaInicial from './pages/TelaInicial';
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
+import CadastroEndereco from './pages/CadastroEndereco';
 import Home from './pages/Home'
 import Busca from './pages/Busca'
 import DetalhesPerfil from './pages/DetalhesPerfil';
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/cadastro">
           <Cadastro />
+        </Route>
+        <Route exact path="/cadastro/endereco">
+          <CadastroEndereco />
         </Route>
         <Route exact path="/home">
           <Home />

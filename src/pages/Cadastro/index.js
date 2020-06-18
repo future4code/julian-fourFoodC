@@ -45,8 +45,8 @@ border: none;
 const Cadastro = () => {
   const history = useHistory();
 
-  const goToHome = () => {
-    history.push("/home")
+  const goToAdress = () => {
+    history.push("/cadastro/endereco")
     
 }
 
@@ -91,7 +91,7 @@ const Cadastro = () => {
           variant="outlined"
 
         />
-    <BotaoInsc onClick = { goToHome } > Criar </BotaoInsc> 
+    <BotaoInsc onClick = { goToAdress } > Criar </BotaoInsc> 
     </DivInterna>
   </TelaToda>
   );
