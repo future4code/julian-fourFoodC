@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const TelaToda = styled.div`
   margin: 0;
@@ -15,25 +16,34 @@ export const TelaToda = styled.div`
 export const DivInterna = styled.div`
   width: 360px;
   box-sizing: border-box;
+  padding: 88px 16px 16px;
   height: 640px;
   margin: 5px;
   border: 1px solid black;
   background-color: white;
-  display: grid;
+  display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column; 
-
 `
-export const BotaoInsc = styled.button`
-color: black;
-background-color: #e8222e;
-padding: 12px;
-font-size: 15px;
-font-weight:bold;
-border: none;
 
-:hover {
-    background-color: #b90510;
-}
-` 
+export const InputContainer = styled.div`
+    margin: 16px;
+`
+
+export const BotaoInsc = styled.button`
+  color: black;
+  background-color: #e8222e;
+  padding: 12px;
+  font-size: 15px;
+  font-weight:bold;
+  border: none;
+  width: 245px;
+  :hover {
+      background-color: #b90510;
+  }
+`
+
+export const LinkCadastro = styled(Link)`
+  text-decoration: none;
+  color: black;
+`
