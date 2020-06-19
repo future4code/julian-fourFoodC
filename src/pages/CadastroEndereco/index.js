@@ -23,7 +23,6 @@ export const DivInterna = styled.div`
   box-sizing: border-box;
   height: 640px;
   margin: 5px;
-  margin-top: 10px;
   border: 1px solid black;
   background-color: white;
   display: grid;
@@ -45,9 +44,6 @@ border: none;
 }
 ` 
 const FormContainer = styled.form`
-display: grid;
-align-items: center;
-gap: 12px;
 `
 
 const CadastroEndereco = () => {
@@ -103,9 +99,8 @@ const CadastroEndereco = () => {
   return (
     <TelaToda>
     <DivInterna>
-      
-      <FormContainer onSubmit={cadastrarEndereco}>
       <img src={logo} alt="iFuture"/>
+      <FormContainer onSubmit={cadastrarEndereco}>
         <TextField
             label={'Logradouro*'}
             onChange={onChangeInput}
@@ -158,7 +153,7 @@ const CadastroEndereco = () => {
           value={form.state}
           variant="outlined"
         />
-        <BotaoInsc onClick = { cadastrarEndereco }> Salvar </BotaoInsc> 
+        <BotaoInsc> Salvar </BotaoInsc> 
       </FormContainer>
     </DivInterna>
   </TelaToda>  
