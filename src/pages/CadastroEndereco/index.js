@@ -158,7 +158,7 @@ const CadastroEndereco = () => {
           value={form.state}
           variant="outlined"
         />
-        <BotaoInsc onClick = { cadastrarEndereco }> Salvar </BotaoInsc> 
+        <BotaoInsc> Salvar </BotaoInsc> 
       </FormContainer>
     </DivInterna>
   </TelaToda>  
