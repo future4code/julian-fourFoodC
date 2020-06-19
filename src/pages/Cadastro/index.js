@@ -3,6 +3,8 @@ import logo from '../../img/logo-future-eats-red.png'
 import TextField from '@material-ui/core/TextField';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
+import axios from 'axios';
+import {useForm} from '../../hooks/useForm'
 
 const TelaToda = styled.div`
   margin: 0;
@@ -41,6 +43,11 @@ border: none;
     background-color: #b90510;
 }
 ` 
+const FormContainer = styled.form`
+display: grid;
+align-items: center;
+gap: 12px;
+`   
 
 const Cadastro = () => {
   const history = useHistory();
@@ -50,48 +57,95 @@ const Cadastro = () => {
     
 }
 
+const {form, changeValue} = useForm({
+  name: "",
+  email: "",
+  cpf: "",
+  password: ""
+})
+
+const onChangeinput = (event) => {
+  const {name, value} = event.target;
+  changeValue(name, value);
+}
+
+const cadastrarCliente = (event) => {
+  event.preventDefault();
+
+  const body = {
+    name: form.name,
+    email: form.email,
+    cpf: form.cpf,
+    password: form.password
+  }
+
+  axios
+  .post('https://us-central1-missao-newton.cloudfunctions.net/fourFoodC/signup',
+  body)     
+.then((response) => {
+  window.localStorage.setItem('token')
+  goToAdress();   
+})
+.catch(error =>{
+  console.log(error.response);
+})
+}
+
   return (
     <TelaToda>
     <DivInterna>
+
+      <FormContainer onSubmit={cadastrarCliente}>
       <img src={logo} alt="iFuture"/>
       <TextField
-          id="outlined-helperText"
-          label="Nome*"
-          defaultValue="Nome e sobrenome"
+          label={"Nome*"}
+          onChange={onChangeinput}
+          type={"text"}
+          name="name"
+          value={form.name}
           variant="outlined"
           
 
         />
       <TextField
-          id="outlined-helperText"
-          label="E-mail*"
-          defaultValue="email@email.com"
+          label={"E-mail*"}
+          onChange={onChangeinput}
+          type={"text"}
+          name="email"
+          value={form.email}
           variant="outlined"
 
         />
-              <TextField
-          id="outlined-helperText"
-          label="CPF*"
-          defaultValue="000.000.000-00"
+        <TextField
+          label={"CPF*"}
+          onChange={onChangeinput}
+          type={"number"}
+          name="cpf"
+          value={form.cpf}
           variant="outlined"
           
 
         />
       <TextField
-          id="outlined-helperText"
-          label="Senha*"
-          defaultValue="Mínimo 6 caracteres"
+          label={"Senha*"}
+          onChange={onChangeinput}
+          type={"number"}
+          name="password"
+          value={form.password}
           variant="outlined"
 
         />
          <TextField
-          id="outlined-helperText"
-          label="Confirmar*"
-          defaultValue="Confirme a senha anterior"
+          label={"Confirmar*"}
+          onChange={onChangeinput}
+          type={"text"}
+          name="password"
+          value={form.password}
           variant="outlined"
 
         />
-    <BotaoInsc onClick = { goToAdress } > Criar </BotaoInsc> 
+    <BotaoInsc onClick = { cadastrarCliente } > Criar </BotaoInsc> 
+    </FormContainer>
     </DivInterna>
   </TelaToda>
   );
