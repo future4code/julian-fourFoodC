@@ -46,4 +46,10 @@ export const BotaoInsc = styled.button`
 export const LinkCadastro = styled(Link)`
   text-decoration: none;
   color: black;
+  margin: 16px 0;
+`
+
+export const TextoErro = styled.p`
+  margin: 8px;
+  color: red;
 `

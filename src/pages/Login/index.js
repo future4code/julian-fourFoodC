@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import logo from '../../img/logo-future-eats-red.png';
 import TextField from '@material-ui/core/TextField';
-import { TelaToda, DivInterna, BotaoInsc, InputContainer, LinkCadastro } from './style';
+import { TelaToda, DivInterna, BotaoInsc, InputContainer, LinkCadastro, TextoErro } from './style';
 import { useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import axios from 'axios';
 
 const Login = () => {
-  document.title="Login";
+  document.title="Login - iFuture";
   const history = useHistory();
   const token = localStorage.getItem("token");
   
@@ -67,7 +67,7 @@ const Login = () => {
             fullWidth
           />
         </InputContainer>
-        {erro && <p>{erro}</p>}
+        {erro && <TextoErro>{erro}</TextoErro>}
         <BotaoInsc onClick={goToHome} > Entrar </BotaoInsc>
         <LinkCadastro to="/cadastro"><p>Não possui cadastro? Clique aqui</p></LinkCadastro>  
       </DivInterna>
