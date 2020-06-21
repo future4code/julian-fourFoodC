@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Container, Nav, Topbar, Input} from './style'
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import Paginas from './Paginas'
@@ -10,6 +10,11 @@ import Paginas from './Paginas'
   no components paginas fazer comm que cada uma renderize apenas o 
   tipo de comida 
 */
+const [inputValue, setInputValue] = useState('')
+const handleInput = (e) =>{
+  setInputValue(e.target.value)
+}
+
 
 const search = Paginas.restaurante
   .filter((restaurante) => {
@@ -37,7 +42,7 @@ const Home = () => {
     <BrowserRouter>
       <Topbar className="Container">
         <h3>ifuture</h3>
-        <Input placeholder='Restaurante'></Input>
+        <Input placeholder='Restaurante' onChange={handleInput}></Input>
       </Topbar>
       <Container>
         <Nav>

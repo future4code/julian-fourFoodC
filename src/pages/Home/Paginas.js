@@ -41,7 +41,7 @@ function Paginas(){
     }
   }
   
-  function Pagina1(){
+  function Pagina1(props){
     const [lista, setLista] = useState([  {
         "id": "1",
         "description": "Habib's é uma rede de restaurantes de comida rápida brasileira especializada em culinária árabe, os restaurantes vendem mais de 600 milhões de esfirras por ano. A empresa emprega 22 mil colaboradores e tem 421 unidades distribuídas em mais de cem municípios em 20 unidades federativas.",
