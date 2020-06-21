@@ -11,6 +11,27 @@ import Paginas from './Paginas'
   tipo de comida 
 */
 
+const search = Paginas.restaurante
+  .filter((restaurante) => {
+    return restaurante.name.toLocaleÇLowerCase().includes(inputValue)
+  })
+    .map((item)=>{
+      return(
+        <Card key='item' className="Card">
+        <Imagem src={item.logoUrl}></Imagem>
+
+         <Nome className="Nome">
+           <p>{item.name}</p>
+         </Nome>
+
+         <Info className='Info'>
+           <p>{item.deliveryTime} min</p>
+           <p>Frete R${item.shipping.toFixed(2)}</p>
+         </Info>
+         </Card>
+      )
+    })
+
 const Home = () => { 
   return (
     <BrowserRouter>
