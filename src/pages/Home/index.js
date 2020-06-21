@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import {Container, Nav, Topbar, Input} from './style'
+import {Container, Nav, Topbar, Input, Card, Imagem,Nome,Info} from './style'
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import Paginas from './Paginas'
 
 
-/* vou ter que usar o axios com endpoint para pegar o tipo
-  de comida para o link
 
-  no components paginas fazer comm que cada uma renderize apenas o 
-  tipo de comida 
-*/
-const [inputValue, setInputValue] = useState('')
-const handleInput = (e) =>{
+
+
+
+
+const Home = () => { 
+  const [inputValue, setInputValue] = useState("")
+  const handleInput = (e) =>{
   setInputValue(e.target.value)
 }
 
-
-const search = Paginas.restaurante
+  const search = Paginas.restaurante
   .filter((restaurante) => {
-    return restaurante.name.toLocaleÇLowerCase().includes(inputValue)
+    return restaurante.name.toLocaleLowerCase(inputValue).includes(inputValue)
   })
     .map((item)=>{
       return(
@@ -37,12 +36,12 @@ const search = Paginas.restaurante
       )
     })
 
-const Home = () => { 
+
   return (
     <BrowserRouter>
       <Topbar className="Container">
         <h3>ifuture</h3>
-        <Input placeholder='Restaurante' onChange={handleInput}></Input>
+        <Input placeholder='Restaurante' onChange={handleInput} value={inputValue}></Input>
       </Topbar>
       <Container>
         <Nav>
